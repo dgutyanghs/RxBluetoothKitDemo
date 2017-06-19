@@ -1,0 +1,20 @@
+PODS:
+  - RxBluetoothKit (3.0.12):
+    - RxSwift (~> 3.2)
+  - RxCocoa (3.5.0):
+    - RxSwift (~> 3.4)
+  - RxSwift (3.5.0)
+
+DEPENDENCIES:
+  - RxBluetoothKit
+  - RxCocoa
+  - RxSwift
+
+SPEC CHECKSUMS:
+  RxBluetoothKit: 759d0e91afae6a3346086b3e834c5d5320061a72
+  RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
+  RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
+
+PODFILE CHECKSUM: d1e9176a4ffb67a5b7c1594244b6dcca47bcb860
+
+COCOAPODS: 1.1.1

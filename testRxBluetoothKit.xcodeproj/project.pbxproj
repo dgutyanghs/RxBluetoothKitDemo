@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FD940EB76BA0414CFF2F2AC /* Pods_testRxBluetoothKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9B2BC174CA3BCB85937CE8E /* Pods_testRxBluetoothKitTests.framework */; };
 		C06B7BD71EF7C4EC00E7E810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06B7BD61EF7C4EC00E7E810 /* AppDelegate.swift */; };
 		C06B7BD91EF7C4EC00E7E810 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06B7BD81EF7C4EC00E7E810 /* ViewController.swift */; };
 		C06B7BDC1EF7C4EC00E7E810 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C06B7BDA1EF7C4EC00E7E810 /* Main.storyboard */; };
@@ -14,6 +15,8 @@
 		C06B7BE11EF7C4EC00E7E810 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C06B7BE01EF7C4EC00E7E810 /* Assets.xcassets */; };
 		C06B7BE41EF7C4EC00E7E810 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C06B7BE21EF7C4EC00E7E810 /* LaunchScreen.storyboard */; };
 		C06B7BEF1EF7C4EC00E7E810 /* testRxBluetoothKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06B7BEE1EF7C4EC00E7E810 /* testRxBluetoothKitTests.swift */; };
+		C06B7BFA1EF7D37C00E7E810 /* ScannedPeripheralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06B7BF91EF7D37C00E7E810 /* ScannedPeripheralCell.swift */; };
+		D88EFFA12359C6C7CFEEB11D /* Pods_testRxBluetoothKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C9FCB4D5AC0B68C2EA3E6A /* Pods_testRxBluetoothKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +30,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22266535AC975AF0CCF3205A /* Pods-testRxBluetoothKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testRxBluetoothKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testRxBluetoothKitTests/Pods-testRxBluetoothKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3E051F07F40978360FD38C0D /* Pods-testRxBluetoothKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testRxBluetoothKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-testRxBluetoothKitTests/Pods-testRxBluetoothKitTests.release.xcconfig"; sourceTree = "<group>"; };
+		4A37D62C50B3C2FE5BF86E9C /* Pods-testRxBluetoothKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testRxBluetoothKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-testRxBluetoothKit/Pods-testRxBluetoothKit.release.xcconfig"; sourceTree = "<group>"; };
+		94C9FCB4D5AC0B68C2EA3E6A /* Pods_testRxBluetoothKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testRxBluetoothKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		996288A0B7F8D73047276E98 /* Pods-testRxBluetoothKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testRxBluetoothKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testRxBluetoothKit/Pods-testRxBluetoothKit.debug.xcconfig"; sourceTree = "<group>"; };
 		C06B7BD31EF7C4EC00E7E810 /* testRxBluetoothKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testRxBluetoothKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C06B7BD61EF7C4EC00E7E810 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C06B7BD81EF7C4EC00E7E810 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +46,8 @@
 		C06B7BEA1EF7C4EC00E7E810 /* testRxBluetoothKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testRxBluetoothKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C06B7BEE1EF7C4EC00E7E810 /* testRxBluetoothKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testRxBluetoothKitTests.swift; sourceTree = "<group>"; };
 		C06B7BF01EF7C4EC00E7E810 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C06B7BF91EF7D37C00E7E810 /* ScannedPeripheralCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannedPeripheralCell.swift; sourceTree = "<group>"; };
+		C9B2BC174CA3BCB85937CE8E /* Pods_testRxBluetoothKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testRxBluetoothKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D88EFFA12359C6C7CFEEB11D /* Pods_testRxBluetoothKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +63,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FD940EB76BA0414CFF2F2AC /* Pods_testRxBluetoothKitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		80D4148587D280254F621A4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				996288A0B7F8D73047276E98 /* Pods-testRxBluetoothKit.debug.xcconfig */,
+				4A37D62C50B3C2FE5BF86E9C /* Pods-testRxBluetoothKit.release.xcconfig */,
+				22266535AC975AF0CCF3205A /* Pods-testRxBluetoothKitTests.debug.xcconfig */,
+				3E051F07F40978360FD38C0D /* Pods-testRxBluetoothKitTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A330ACACCCA78D4F01E71BBF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94C9FCB4D5AC0B68C2EA3E6A /* Pods_testRxBluetoothKit.framework */,
+				C9B2BC174CA3BCB85937CE8E /* Pods_testRxBluetoothKitTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C06B7BCA1EF7C4EC00E7E810 = {
 			isa = PBXGroup;
 			children = (
 				C06B7BD51EF7C4EC00E7E810 /* testRxBluetoothKit */,
 				C06B7BED1EF7C4EC00E7E810 /* testRxBluetoothKitTests */,
 				C06B7BD41EF7C4EC00E7E810 /* Products */,
+				80D4148587D280254F621A4E /* Pods */,
+				A330ACACCCA78D4F01E71BBF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +113,7 @@
 		C06B7BD51EF7C4EC00E7E810 /* testRxBluetoothKit */ = {
 			isa = PBXGroup;
 			children = (
+				C06B7BFB1EF7D38000E7E810 /* View */,
 				C06B7BD61EF7C4EC00E7E810 /* AppDelegate.swift */,
 				C06B7BD81EF7C4EC00E7E810 /* ViewController.swift */,
 				C06B7BDA1EF7C4EC00E7E810 /* Main.storyboard */,
@@ -99,6 +134,14 @@
 			path = testRxBluetoothKitTests;
 			sourceTree = "<group>";
 		};
+		C06B7BFB1EF7D38000E7E810 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C06B7BF91EF7D37C00E7E810 /* ScannedPeripheralCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C06B7BF31EF7C4EC00E7E810 /* Build configuration list for PBXNativeTarget "testRxBluetoothKit" */;
 			buildPhases = (
+				CAA5DDE860F54147790F3887 /* [CP] Check Pods Manifest.lock */,
 				C06B7BCF1EF7C4EC00E7E810 /* Sources */,
 				C06B7BD01EF7C4EC00E7E810 /* Frameworks */,
 				C06B7BD11EF7C4EC00E7E810 /* Resources */,
+				BC033347C527F40F288AAE9F /* [CP] Embed Pods Frameworks */,
+				3F8CFC672436E08E1D53A654 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,9 +169,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C06B7BF61EF7C4EC00E7E810 /* Build configuration list for PBXNativeTarget "testRxBluetoothKitTests" */;
 			buildPhases = (
+				3A12CAECCA10F14B3C5308CC /* [CP] Check Pods Manifest.lock */,
 				C06B7BE61EF7C4EC00E7E810 /* Sources */,
 				C06B7BE71EF7C4EC00E7E810 /* Frameworks */,
 				C06B7BE81EF7C4EC00E7E810 /* Resources */,
+				1E93FD89B8E3156511CD48CF /* [CP] Embed Pods Frameworks */,
+				01DF8763A9DD9AF82E1D51EA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,6 +248,99 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01DF8763A9DD9AF82E1D51EA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-testRxBluetoothKitTests/Pods-testRxBluetoothKitTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1E93FD89B8E3156511CD48CF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-testRxBluetoothKitTests/Pods-testRxBluetoothKitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3A12CAECCA10F14B3C5308CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3F8CFC672436E08E1D53A654 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-testRxBluetoothKit/Pods-testRxBluetoothKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC033347C527F40F288AAE9F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-testRxBluetoothKit/Pods-testRxBluetoothKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAA5DDE860F54147790F3887 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C06B7BCF1EF7C4EC00E7E810 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -206,6 +348,7 @@
 			files = (
 				C06B7BD91EF7C4EC00E7E810 /* ViewController.swift in Sources */,
 				C06B7BDF1EF7C4EC00E7E810 /* testRxBluetoothKit.xcdatamodeld in Sources */,
+				C06B7BFA1EF7D37C00E7E810 /* ScannedPeripheralCell.swift in Sources */,
 				C06B7BD71EF7C4EC00E7E810 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,10 +486,12 @@
 		};
 		C06B7BF41EF7C4EC00E7E810 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 996288A0B7F8D73047276E98 /* Pods-testRxBluetoothKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = X77M95VSB8;
 				INFOPLIST_FILE = testRxBluetoothKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = BY.testRxBluetoothKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -356,10 +501,12 @@
 		};
 		C06B7BF51EF7C4EC00E7E810 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A37D62C50B3C2FE5BF86E9C /* Pods-testRxBluetoothKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = X77M95VSB8;
 				INFOPLIST_FILE = testRxBluetoothKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = BY.testRxBluetoothKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -369,6 +516,7 @@
 		};
 		C06B7BF71EF7C4EC00E7E810 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22266535AC975AF0CCF3205A /* Pods-testRxBluetoothKitTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -384,6 +532,7 @@
 		};
 		C06B7BF81EF7C4EC00E7E810 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E051F07F40978360FD38C0D /* Pods-testRxBluetoothKitTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -416,6 +565,7 @@
 				C06B7BF51EF7C4EC00E7E810 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C06B7BF61EF7C4EC00E7E810 /* Build configuration list for PBXNativeTarget "testRxBluetoothKitTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +574,7 @@
 				C06B7BF81EF7C4EC00E7E810 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
