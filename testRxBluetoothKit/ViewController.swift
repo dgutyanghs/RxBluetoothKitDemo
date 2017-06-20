@@ -9,7 +9,7 @@
 import UIKit
 import RxBluetoothKit
 import RxSwift
-import CoreBluetooth
+//import CoreBluetooth
 import RxCocoa
 
 class ViewController: UIViewController {
@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private let cellID =  "bluetootdevicecell"
     
-    private var isScanInProgress = false
+    private var isScanInProgress = Variable<Bool>(false)
     private var scheduler: ConcurrentDispatchQueueScheduler!
     private let manager = BluetoothManager(queue: .main)
     private var scanningDisposable: Disposable?
@@ -28,13 +28,7 @@ class ViewController: UIViewController {
     let bag = DisposeBag()
     
     public func rightItemDidClicked(_ sender:UIBarButtonItem) {
-        if isScanInProgress {
-            self.stopScanning()
-            sender.title = "start scan"
-        }else {
-            self.startScanning()
-            sender.title = "stop scan"
-        }
+        isScanInProgress.value = !isScanInProgress.value
     }
     
     override func viewDidLoad() {
@@ -51,6 +45,20 @@ class ViewController: UIViewController {
                 cellToUse.configure(with: ScannedPeripheral)
             }
         }.addDisposableTo(bag)
+        
+        
+        ///scan item 状态
+        isScanInProgress.asObservable()
+        .skip(1) //skip the initial value
+        .subscribe(onNext:{
+           [weak self]  status in
+            if status {
+                self?.startScanning()
+                
+            }else {
+                self?.stopScanning()
+            }
+        }).addDisposableTo(bag)
     }
     
     private func addNewScannedPeripheral(_ peripheral: ScannedPeripheral) {
@@ -64,18 +72,17 @@ class ViewController: UIViewController {
     
     private func stopScanning() {
         scanningDisposable?.dispose()
-        isScanInProgress = false
-        self.title = "normal"
+        self.title = "Peripherals"
+        navigationItem.rightBarButtonItem?.title = "scan"
     }
     
     private func startScanning() {
         
         self.title = "scanning"
-        isScanInProgress = true
-         
+        navigationItem.rightBarButtonItem?.title = "stop scan"
         let scanningObserable = manager.rx_state.share()
         
-       _ = scanningObserable
+       scanningDisposable = scanningObserable
         .flatMap {_ in self.manager.scanForPeripherals(withServices:nil, options:nil) }
         .subscribeOn(MainScheduler.instance)
         .subscribe(onNext: {
@@ -87,12 +94,13 @@ class ViewController: UIViewController {
        
         /// 蓝牙未打开，提示用户
         _ = scanningObserable
+            .takeLast(1)
             .filter {
                 $0 != .poweredOn
             }
             .subscribe(onNext: { _ in
                 self.showMessage("bluetooth", msg: "pls turn on bluetooth first")
-            })
+            }).addDisposableTo(bag)
     }
 
     private func showMessage(_ title:String, msg:String) {
