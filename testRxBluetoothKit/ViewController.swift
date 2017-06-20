@@ -10,8 +10,9 @@ import UIKit
 import RxBluetoothKit
 import RxSwift
 import CoreBluetooth
+import RxCocoa
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     private let cellID =  "bluetootdevicecell"
@@ -21,11 +22,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     private let manager = BluetoothManager(queue: .main)
     private var scanningDisposable: Disposable?
   
-    /// RxBluetoothKit variable : 
-    fileprivate var peripheralsArray: [ScannedPeripheral] = []
+    /// RxBluetoothKit  ScannedPeripheral
+    fileprivate var peripheralsArray = Variable<[ScannedPeripheral]>([])
+    
+    let bag = DisposeBag()
     
     public func rightItemDidClicked(_ sender:UIBarButtonItem) {
-        print("right item did clicked")
         if isScanInProgress {
             self.stopScanning()
             sender.title = "start scan"
@@ -33,32 +35,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.startScanning()
             sender.title = "stop scan"
         }
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let rightItem = UIBarButtonItem.init(title: "scan", style: UIBarButtonItemStyle.done, target: self, action: #selector( rightItemDidClicked(_ :)))
-    
-            navigationItem.rightBarButtonItem = rightItem
-        
-        tableView.dataSource = self
-        tableView.delegate   = self
+        navigationItem.rightBarButtonItem = rightItem
         
         tableView.register(ScannedPeripheralCell.self, forCellReuseIdentifier: cellID)
+        /// tableView 的 cell 生成
+        peripheralsArray.asObservable().bind(to: tableView.rx.items(cellIdentifier:cellID)) {
+            _, ScannedPeripheral, cell in
+            if let cellToUse = cell as? ScannedPeripheralCell {
+                cellToUse.configure(with: ScannedPeripheral)
+            }
+        }.addDisposableTo(bag)
     }
     
     private func addNewScannedPeripheral(_ peripheral: ScannedPeripheral) {
-        let mapped = peripheralsArray.map{ $0.peripheral }
+        let mapped = peripheralsArray.value.map{ $0.peripheral }
         if let index = mapped.index(of: peripheral.peripheral) {
-           peripheralsArray[index] = peripheral
+           peripheralsArray.value[index] = peripheral
         }else {
-            self.peripheralsArray.append(peripheral)
-        }
-        
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+            self.peripheralsArray.value.append(peripheral)
         }
     }
     
@@ -96,31 +96,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     private func showMessage(_ title:String, msg:String) {
-//       UIAlertController *ctrl
         let ctrl = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
         ctrl.addAction(action)
         
         self.present(ctrl, animated: true, completion: nil)
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        let peripheral = peripheralsArray[indexPath.row]
-        if let peripheralCell = cell as? ScannedPeripheralCell {
-            peripheralCell.configure(with: peripheral)
-        }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return peripheralsArray.count
-    }
-
 }
 
 extension ScannedPeripheralCell {
