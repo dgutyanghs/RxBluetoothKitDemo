@@ -46,6 +46,20 @@ class ViewController: UIViewController {
             }
         }.addDisposableTo(bag)
         
+        /// tableView 的 cell selected
+        tableView.rx.itemSelected.subscribe(onNext: {
+           [weak self] indexPath in
+            if let cell = self?.tableView.cellForRow(at: indexPath) as? ScannedPeripheralCell {
+                cell.textLabel?.text = "user selected"
+            }
+        }).addDisposableTo(bag)
+        
+        /// tableView DataSource model Selected
+        tableView.rx.modelSelected(ScannedPeripheral.self).subscribe(onNext: {
+            peripheral in
+            print(peripheral.advertisementData.localName ?? "no name")
+        }).addDisposableTo(bag)
+        
         
         ///scan item 状态
         isScanInProgress.asObservable()
