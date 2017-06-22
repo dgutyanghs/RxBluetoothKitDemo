@@ -19,7 +19,8 @@ class ViewController: UIViewController {
     
     private var isScanInProgress = Variable<Bool>(false)
     private var scheduler: ConcurrentDispatchQueueScheduler!
-    private let manager = BluetoothManager(queue: .main)
+//    private let manager = BluetoothManager(queue: .main)
+    static public let manager = BluetoothManager(queue: .main)
     private var scanningDisposable: Disposable?
   
     /// RxBluetoothKit  ScannedPeripheral
@@ -56,9 +57,20 @@ class ViewController: UIViewController {
         
         /// tableView DataSource model Selected
         tableView.rx.modelSelected(ScannedPeripheral.self).subscribe(onNext: {
-            peripheral in
-            print(peripheral.advertisementData.localName ?? "no name")
-        }).addDisposableTo(bag)
+            scanPeripheral in
+            print(scanPeripheral.advertisementData.localName ?? "no name")
+            
+            ViewController.manager.connect(scanPeripheral.peripheral)
+                .subscribe(onNext: {
+                    [weak self] peripheral in
+                    let detailVc =  DetailTableViewController.init(style:UITableViewStyle.plain)
+                    detailVc.peripheral = peripheral
+                    
+                    self?.navigationController?.pushViewController(detailVc, animated: true)
+                })
+                .addDisposableTo(self.bag)
+        })
+        .addDisposableTo(bag)
         
         
         ///scan item 状态
@@ -94,10 +106,10 @@ class ViewController: UIViewController {
         
         self.title = "scanning"
         navigationItem.rightBarButtonItem?.title = "stop scan"
-        let scanningObserable = manager.rx_state.share()
+        let scanningObserable = ViewController.manager.rx_state.share()
         
        scanningDisposable = scanningObserable
-        .flatMap {_ in self.manager.scanForPeripherals(withServices:nil, options:nil) }
+        .flatMap {_ in ViewController.manager.scanForPeripherals(withServices:nil, options:nil) }
         .subscribeOn(MainScheduler.instance)
         .subscribe(onNext: {
                 self.addNewScannedPeripheral($0)
