@@ -9,7 +9,6 @@
 import UIKit
 import RxBluetoothKit
 import RxSwift
-//import CoreBluetooth
 import RxCocoa
 
 class ViewController: UIViewController {
@@ -49,10 +48,13 @@ class ViewController: UIViewController {
         
         /// tableView 的 cell selected
         tableView.rx.itemSelected.subscribe(onNext: {
-           [weak self] indexPath in
-            if let cell = self?.tableView.cellForRow(at: indexPath) as? ScannedPeripheralCell {
-                cell.textLabel?.text = "user selected"
-            }
+            indexPath in
+            print("row:\(indexPath.row) be selected")
+            
+//           [weak self] indexPath in
+//            if let cell = self?.tableView.cellForRow(at: indexPath) as? ScannedPeripheralCell {
+//                cell.textLabel?.text = "user selected"
+//            }
         }).addDisposableTo(bag)
         
         /// tableView DataSource model Selected
@@ -109,6 +111,7 @@ class ViewController: UIViewController {
         let scanningObserable = ViewController.manager.rx_state.share()
         
        scanningDisposable = scanningObserable
+        .filter{ $0 == .poweredOn }
         .flatMap {_ in ViewController.manager.scanForPeripherals(withServices:nil, options:nil) }
         .subscribeOn(MainScheduler.instance)
         .subscribe(onNext: {
