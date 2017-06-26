@@ -65,7 +65,7 @@ class ViewController: UIViewController {
             ViewController.manager.connect(scanPeripheral.peripheral)
                 .subscribe(onNext: {
                     [weak self] peripheral in
-                    let detailVc =  DetailTableViewController.init(style:UITableViewStyle.plain)
+                    let detailVc =  ServicesTableViewController.init(style:UITableViewStyle.grouped)
                     detailVc.peripheral = peripheral
                     
                     self?.navigationController?.pushViewController(detailVc, animated: true)

@@ -1,5 +1,5 @@
 //
-//  DetailTableViewController.swift
+//  ServicesTableViewController.swift
 //  testRxBluetoothKit
 //
 //  Created by  BlueYang on 2017/6/22.
@@ -11,15 +11,38 @@ import RxBluetoothKit
 import RxSwift
 import RxCocoa
 
-class DetailTableViewController: UITableViewController {
+class ServicesTableViewController: UITableViewController {
     open var peripheral: Peripheral? = nil
     let bag = DisposeBag ()
     fileprivate var servicesArray = Variable<[Service]>([])
+//    fileprivate var charactArray = Variable<[Characteristic]>([])
     private let cellID =  "detailcell"
+    
+    @objc private func rightItemDidClicked(_ sender:UIBarButtonItem) {
+        guard let peripheral = self.peripheral else {
+            return
+        }
+        
+        ViewController.manager.cancelPeripheralConnection(peripheral)
+            .subscribe( 
+            onError: { (error) in
+                print("cancel connect error :\(error.localizedDescription)")
+            }, onCompleted: {
+                [weak self] _ in
+                print("\(peripheral.name ?? "device") disconnect")
+                self?.navigationController?.popViewController(animated: true)
+            }, onDisposed: {
+                print("cancelConnection disposed")
+            }).addDisposableTo(bag)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Connected"
+        
+        
+        let rightItem = UIBarButtonItem.init(title: "disconnect", style: UIBarButtonItemStyle.done, target: self, action: #selector(rightItemDidClicked(_ :)))
+        navigationItem.rightBarButtonItem = rightItem
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         // TODO: 在servicesArray.asObservable().bind tableView,需要将tableView的dataSource 置空
@@ -31,7 +54,6 @@ class DetailTableViewController: UITableViewController {
         }.addDisposableTo(bag)
         
         
-        
         peripheral?.connect()
             .flatMap { $0.discoverServices(nil) }
             .flatMap { Observable.from( $0 ) }
@@ -41,6 +63,15 @@ class DetailTableViewController: UITableViewController {
                 self?.servicesArray.value.append(service)
                 self?.tableView.reloadData()
             }).addDisposableTo(bag)
+        
+        tableView.rx.modelSelected(Service.self).subscribe(onNext: {
+            serv in
+            let charactVc = CharactTableViewController.init(style: UITableViewStyle.plain)
+            charactVc.service = serv
+            
+            self.navigationController?.pushViewController(charactVc, animated: true)
+        }).addDisposableTo(bag)
+            
         
     }
     
@@ -59,19 +90,6 @@ class DetailTableViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        guard let peripheral = self.peripheral else {
-            return
-        }
-        
-        ViewController.manager.cancelPeripheralConnection(peripheral)
-            .subscribe( 
-            onError: { (error) in
-                print("cancel connect error :\(error.localizedDescription)")
-            }, onCompleted: {
-                print("\(peripheral.name ?? "device") disconnect")
-            }, onDisposed: {
-                print("cancelConnection disposed")
-            }).addDisposableTo(bag)
     }
 
 }

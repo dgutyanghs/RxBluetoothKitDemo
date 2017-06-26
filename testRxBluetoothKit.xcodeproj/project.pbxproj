@@ -16,8 +16,9 @@
 		C06B7BE41EF7C4EC00E7E810 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C06B7BE21EF7C4EC00E7E810 /* LaunchScreen.storyboard */; };
 		C06B7BEF1EF7C4EC00E7E810 /* testRxBluetoothKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06B7BEE1EF7C4EC00E7E810 /* testRxBluetoothKitTests.swift */; };
 		C06B7BFA1EF7D37C00E7E810 /* ScannedPeripheralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06B7BF91EF7D37C00E7E810 /* ScannedPeripheralCell.swift */; };
-		C06B7BFD1EFBEC2B00E7E810 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06B7BFC1EFBEC2A00E7E810 /* DetailTableViewController.swift */; };
-		C06B7BFE1EFBEC2B00E7E810 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06B7BFC1EFBEC2A00E7E810 /* DetailTableViewController.swift */; };
+		C06B7BFD1EFBEC2B00E7E810 /* ServicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06B7BFC1EFBEC2A00E7E810 /* ServicesTableViewController.swift */; };
+		C06B7BFE1EFBEC2B00E7E810 /* ServicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06B7BFC1EFBEC2A00E7E810 /* ServicesTableViewController.swift */; };
+		C0A7BC0B1F00A86F0098FE4E /* CharactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A7BC0A1F00A86F0098FE4E /* CharactTableViewController.swift */; };
 		D88EFFA12359C6C7CFEEB11D /* Pods_testRxBluetoothKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C9FCB4D5AC0B68C2EA3E6A /* Pods_testRxBluetoothKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +50,8 @@
 		C06B7BEE1EF7C4EC00E7E810 /* testRxBluetoothKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testRxBluetoothKitTests.swift; sourceTree = "<group>"; };
 		C06B7BF01EF7C4EC00E7E810 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C06B7BF91EF7D37C00E7E810 /* ScannedPeripheralCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannedPeripheralCell.swift; sourceTree = "<group>"; };
-		C06B7BFC1EFBEC2A00E7E810 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		C06B7BFC1EFBEC2A00E7E810 /* ServicesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesTableViewController.swift; sourceTree = "<group>"; };
+		C0A7BC0A1F00A86F0098FE4E /* CharactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactTableViewController.swift; sourceTree = "<group>"; };
 		C9B2BC174CA3BCB85937CE8E /* Pods_testRxBluetoothKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testRxBluetoothKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -119,7 +121,8 @@
 				C06B7BFB1EF7D38000E7E810 /* View */,
 				C06B7BD61EF7C4EC00E7E810 /* AppDelegate.swift */,
 				C06B7BD81EF7C4EC00E7E810 /* ViewController.swift */,
-				C06B7BFC1EFBEC2A00E7E810 /* DetailTableViewController.swift */,
+				C06B7BFC1EFBEC2A00E7E810 /* ServicesTableViewController.swift */,
+				C0A7BC0A1F00A86F0098FE4E /* CharactTableViewController.swift */,
 				C06B7BDA1EF7C4EC00E7E810 /* Main.storyboard */,
 				C06B7BE01EF7C4EC00E7E810 /* Assets.xcassets */,
 				C06B7BE21EF7C4EC00E7E810 /* LaunchScreen.storyboard */,
@@ -351,9 +354,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C06B7BD91EF7C4EC00E7E810 /* ViewController.swift in Sources */,
-				C06B7BFD1EFBEC2B00E7E810 /* DetailTableViewController.swift in Sources */,
+				C06B7BFD1EFBEC2B00E7E810 /* ServicesTableViewController.swift in Sources */,
 				C06B7BDF1EF7C4EC00E7E810 /* testRxBluetoothKit.xcdatamodeld in Sources */,
 				C06B7BFA1EF7D37C00E7E810 /* ScannedPeripheralCell.swift in Sources */,
+				C0A7BC0B1F00A86F0098FE4E /* CharactTableViewController.swift in Sources */,
 				C06B7BD71EF7C4EC00E7E810 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,7 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C06B7BFE1EFBEC2B00E7E810 /* DetailTableViewController.swift in Sources */,
+				C06B7BFE1EFBEC2B00E7E810 /* ServicesTableViewController.swift in Sources */,
 				C06B7BEF1EF7C4EC00E7E810 /* testRxBluetoothKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
